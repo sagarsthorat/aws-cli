@@ -4,10 +4,11 @@ This GitHub Action sets up the AWS Command Line Interface (CLI) in your workflow
 
 ## Inputs
 
-- `aws-version` (optional): The version of the AWS CLI to install. Defaults to the latest version.
+- `aws-cli-version` (optional): The version of the AWS CLI to install. Defaults to the latest version.
 - `aws-access-key-id` (required): The AWS access key ID to authenticate with.
 - `aws-secret-access-key` (required): The AWS secret access key to authenticate with.
 - `aws-region` (required): The AWS region to configure the CLI with.
+- `output-format` (optional): Required output format. Defaults to 'json'.
 
 ## Example Usage
 
