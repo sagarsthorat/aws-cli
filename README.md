@@ -2,7 +2,7 @@
 
 This GitHub Action sets up the AWS Command Line Interface (CLI) in your workflow, allowing you to interact with AWS services.
 
-## Inputs
+## Inputs (Required and Optional)
 
 - `aws-cli-version` (optional): The version of the AWS CLI to install. Defaults to the latest version.
 - `aws-access-key-id` (required): The AWS access key ID to authenticate with.
