@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Setup AWS CLI
-        uses: ./.github/actions/setup-awscli
+        uses: sagarsthorat/aws-cli@v1
         with:
           region: 'us-east-1'
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
