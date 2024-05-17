@@ -1,4 +1,4 @@
-name: Setup AWS CLI
+name: Configure AWS CLI
 author: Sagar Thorat
 description: Setup AWS CLI in GitHub Actions
 branding:
