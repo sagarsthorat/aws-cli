@@ -1,0 +1,49 @@
+name: Setup AWS CLI
+author: Sagar Thorat
+description: Setup AWS CLI in GitHub Actions
+branding:
+  icon: activity
+  color: blue
+inputs:
+  region:
+    description: 'AWS Default Region'
+    required: true
+    default: 'us-east-1'
+  aws-access-key-id:
+    description: 'AWS Access Key ID'
+    required: true
+  aws-secret-access-key:
+    description: 'AWS Secret Access Key'
+    required: true
+  aws-cli-version:
+    description: 'AWS CLI Version'
+    required: false
+    default: 'latest'
+  output-format:
+    description: 'AWS CLI Output Format'
+    required: false
+    default: 'json'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: "Setup AWS CLI"
+      shell: bash
+      run: |
+        echo "Setting up AWS CLI"
+        python -m venv .venv
+        source .venv/bin/activate
+        pip install awscli==${{ inputs.aws-cli-version }}
+        aws configure set default.region ${{ inputs.region }}
+        aws configure set aws_access_key_id ${{ inputs.aws-access-key-id }}
+        aws configure set aws_secret_access_key ${{ inputs.aws-secret-access-key }}
+        aws configure set default.output ${{ inputs.output-format }}
+        aws configure list
+        echo "AWS CLI setup completed"
+    
+    - name: "Verify AWS CLI"
+      shell: bash
+      run: |
+        echo "Verifying AWS CLI"
+        aws sts get-caller-identity
+        echo "AWS CLI verification completed"
