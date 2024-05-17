@@ -18,7 +18,6 @@ inputs:
   aws-cli-version:
     description: 'AWS CLI Version'
     required: false
-    default: 'latest'
   output-format:
     description: 'AWS CLI Output Format'
     required: false
